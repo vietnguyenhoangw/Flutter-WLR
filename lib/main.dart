@@ -2,7 +2,7 @@ import 'package:WelcomeLoginRegister/Constants/Constants.dart';
 import 'package:flutter/material.dart';
 
 // screens
-import 'Screen/welcomeScreen.dart';
+import 'Screen/WelcomeScreen/welcomeScreen.dart';
 
 void main() {
   runApp(MyApp());

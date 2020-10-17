@@ -1,4 +1,3 @@
-import 'package:WelcomeLoginRegister/Constants/Constants.dart';
 import 'package:flutter/material.dart';
 
 // library
@@ -6,7 +5,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 // components
 import 'package:WelcomeLoginRegister/Components/Buttons/WLRButton.dart';
-import './background.dart';
+import '../../Components/Background/background.dart';
+
+// constants
+import 'package:WelcomeLoginRegister/Constants/Constants.dart';
+
+// screens
+import 'package:WelcomeLoginRegister/Screen/LoginScreen/loginScreen.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -36,7 +41,8 @@ class Body extends StatelessWidget {
                 WLRButton(
                   text: "LOGIN",
                   press: () {
-                    print('Hello');
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()));
                   },
                 ),
                 WLRButton(
@@ -44,7 +50,7 @@ class Body extends StatelessWidget {
                   color: violetLightColor,
                   text: "REGISTER",
                   press: () {
-                    print('Hello');
+                    print('Register');
                   },
                 )
               ],
