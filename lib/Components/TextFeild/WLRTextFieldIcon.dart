@@ -8,8 +8,10 @@ class WLRTextFieldIcon extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final ValueChanged<String> onChanged;
+  final bool isPassword;
   const WLRTextFieldIcon({
     Key key,
+    this.isPassword = false,
     this.child,
     this.hintText,
     this.icon = Icons.person,
@@ -20,27 +22,31 @@ class WLRTextFieldIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: 50,
-      margin: EdgeInsets.symmetric(vertical: 10),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      margin: EdgeInsets.symmetric(
+        vertical: 10,
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 4),
       width: size.width * 0.8,
       decoration: BoxDecoration(
         color: violetLightColor,
         borderRadius: BorderRadius.circular(29),
       ),
       child: TextField(
-        obscureText: true,
+        textAlignVertical: isPassword ? TextAlignVertical.center : null,
+        obscureText: isPassword,
         onChanged: onChanged,
         decoration: InputDecoration(
-          hintText: "Password",
+          hintText: hintText,
           icon: Icon(
-            Icons.lock,
+            icon,
             color: violetPrimaryColor,
           ),
-          suffixIcon: Icon(
-            Icons.visibility,
-            color: violetPrimaryColor,
-          ),
+          suffixIcon: isPassword
+              ? Icon(
+                  Icons.visibility,
+                  color: violetPrimaryColor,
+                )
+              : null,
           border: InputBorder.none,
         ),
       ),

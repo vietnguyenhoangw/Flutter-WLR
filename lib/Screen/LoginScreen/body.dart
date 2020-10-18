@@ -36,11 +36,13 @@ class Body extends StatelessWidget {
               ),
               SizedBox(height: deviceSize.height * 0.03),
               WLRTextFieldIcon(
-                hintText: 'username',
+                hintText: 'username or email',
                 onChanged: (value) {},
               ),
               WLRTextFieldIcon(
-                hintText: 'username',
+                isPassword: true,
+                icon: Icons.lock,
+                hintText: 'password',
                 onChanged: (value) {},
               ),
               WLRButton(
