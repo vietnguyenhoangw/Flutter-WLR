@@ -1,4 +1,5 @@
-import 'package:WelcomeLoginRegister/Components/TextFeild/TextFieldWithIcon.dart';
+import 'package:WelcomeLoginRegister/Components/TextFeild/WLRTextFieldIcon.dart';
+import 'package:WelcomeLoginRegister/Screen/LoginScreen/haveAnAccount.dart';
 import 'package:flutter/material.dart';
 
 // library
@@ -12,13 +13,14 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
-
     return Background(
       child: SingleChildScrollView(
-        child: Container(
-          width: deviceSize.width,
+        child: ConstrainedBox(
+          constraints: BoxConstraints.tightFor(
+            height: deviceSize.height,
+          ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               RichText(
                   textAlign: TextAlign.center,
@@ -27,10 +29,28 @@ class Body extends StatelessWidget {
                         text: 'LOGIN',
                         style: Theme.of(context).textTheme.display1)
                   ])),
+              SizedBox(height: deviceSize.height * 0.03),
               SvgPicture.asset(
                 "assets/icons/login.svg",
                 height: deviceSize.height / 2.8,
               ),
+              SizedBox(height: deviceSize.height * 0.03),
+              WLRTextFieldIcon(
+                hintText: 'username',
+                onChanged: (value) {},
+              ),
+              WLRTextFieldIcon(
+                hintText: 'username',
+                onChanged: (value) {},
+              ),
+              WLRButton(
+                text: 'LOGIN',
+                press: () {},
+              ),
+              SizedBox(height: deviceSize.height * 0.03),
+              HaveAnAccountCheck(
+                press: () {},
+              )
             ],
           ),
         ),

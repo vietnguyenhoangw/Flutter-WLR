@@ -11,10 +11,11 @@ class Background extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
-
     return Container(
+      height: deviceSize.height,
       color: whiteColor,
       child: Stack(
+        alignment: Alignment.center,
         children: <Widget>[
           Positioned(
               top: 0,
